@@ -21,9 +21,14 @@ name "lib" -> paste (jar files)-> ok
 spring -demo-one (right click )-> properties ->java build path->libraries-> classpath --> add jar --> spring -demo-one -> lib -> choose all  jar files --> ok
 (so for our project we have referenced libaries for all spring jar files)
 
+Spring Bean : is a simply Java object
+
 Inversion of Control(IoC):
 
+Spring Dependency Injection:
 
+
+No-arg constructor is for (in xml ) when we don't define any constructor in class code ( when we have have already constructor compiler didn't create default one)
 
 
 

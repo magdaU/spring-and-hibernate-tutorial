@@ -2,7 +2,7 @@
 
 *It is on website Udemy, tutorial name: "Spring-hibernate-tutorial"
 
-# QuicStart:
+# QuickStart:
 -Installing Tomcat v 9.00 ::: source: https://tomcat.apache.org/download-90.cgi,  choose : 32bit /64bit Windows Service Installer
 (Select the type of install : Full, tomcat adminstrator login: admin, password: admin, 
 Verify installing properly Tomcat by page : localhost:8080, if you see it  is ok

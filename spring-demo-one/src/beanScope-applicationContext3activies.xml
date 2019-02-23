@@ -9,11 +9,9 @@
     
     <!-- Define your beans here -->  
     <!-- Define the dependency -->
-    <bean class="com.github.magdau.springdemo.HughFortuneService" id="myFortuneService">
-  	</bean>
+    <bean class="com.github.magdau.springdemo.RandomFortuneService" id="myFortuneService">	</bean>   	
+    <bean class="com.github.magdau.springdemo.TenisCoach" id="myTenisCoach" scope="prototype">
     	
-    <bean class="com.github.magdau.springdemo.TenisCoach" id="myTenisCoach" scope="protype">
-  	
 		<!-- set up constructor injection -->
 		<constructor-arg ref="myFortuneService" />	
 

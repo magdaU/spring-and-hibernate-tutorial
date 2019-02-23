@@ -16,5 +16,4 @@ public class TenisCoach implements Coach {
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
-
 }

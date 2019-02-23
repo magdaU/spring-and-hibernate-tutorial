@@ -7,18 +7,23 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:sport.properties"/>
+
     <!-- Define your beans here -->
     
     <!-- Define the dependency -->
-    <bean id="myFortuneService"
-    	class="com.github.magdau.springdemo.HappyFortuneService">
-  	</bean>
-    	
-    <bean id="myCoach"
-       class="com.github.magdau.springdemo.TrackCoach">
-  	
-		<!-- set up constructor injection -->
-		<constructor-arg ref="myFortuneService" />	
-
+    <bean id="myFortuneService"	class="com.github.magdau.springdemo.RandomFortuneService">
+    </bean>
+    
+	<bean id="myTenisCoach"
+		class="com.github.magdau.springdemo.TenisCoach">
+	
+	<!-- set up constructor injection -->
+	<constructor-arg ref="myFortuneService" />	
 	</bean>
+	
 </beans>
+
+
+

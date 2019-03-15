@@ -34,6 +34,7 @@ public class EagerLazyDemo {
 			
 			System.out.println("luv2code: Instructor" + tempInstructor);
 			
+			//tempInstructor.getCourses - this is lazy data to load
 			System.out.println("luv2code: Courses" + tempInstructor.getCourses());
 	
 			// commit transaction

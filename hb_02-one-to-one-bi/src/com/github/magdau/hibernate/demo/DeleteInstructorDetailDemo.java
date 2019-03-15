@@ -7,7 +7,7 @@ import com.github.magdau.hibernate.demo.entity.Instructor;
 import com.github.magdau.hibernate.demo.entity.InstructorDetail;
 
 
-public class GetInstructorDetailDemo {
+public class DeleteInstructorDetailDemo {
 
 	public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class GetInstructorDetailDemo {
 			session.beginTransaction();
 
 			// get the instructor detail object
-			int theId = 2999;
+			int theId = 2;
 			InstructorDetail tempInstructorDetail = 
 					session.get(InstructorDetail.class, theId);
 			
@@ -37,6 +37,10 @@ public class GetInstructorDetailDemo {
 			// print  the associated instructor
 			System.out.println("the associated instructor: " + 
 								tempInstructorDetail.getInstructor());
+			
+			//now let's delete the instructor detail
+			System.out.println("Deleting tempInstructorDetail: " + tempInstructorDetail);
+			session.delete(tempInstructorDetail);
 			
 			// commit transaction
 			session.getTransaction().commit();

@@ -34,11 +34,15 @@ public class EagerLazyDemo {
 			
 			System.out.println("luv2code: Instructor" + tempInstructor);
 			
-			//tempInstructor.getCourses - this is lazy data to load
-			System.out.println("luv2code: Courses" + tempInstructor.getCourses());
-	
 			// commit transaction
 			session.getTransaction().commit();
+		
+			session.close();
+					
+			//since courses are lazy loaded ..this should fail
+			
+			//tempInstructor.getCourses - this is lazy data to load
+			System.out.println("luv2code: Courses" + tempInstructor.getCourses());
 			
 			System.out.println("luv2code : Done!");
 		}
@@ -46,6 +50,7 @@ public class EagerLazyDemo {
 			
 			//Add clean up code
 			session.close();
+			
 			
 			factory.close();
 		}

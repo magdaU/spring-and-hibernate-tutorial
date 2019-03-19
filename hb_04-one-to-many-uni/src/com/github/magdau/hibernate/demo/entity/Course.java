@@ -19,15 +19,15 @@ import javax.persistence.Table;
 @Table(name="course")
 public class Course {
 
-	//Define our fields
+	// define our fields
 	
-	//Define constructors
+	// define constructors
 	
-	//Define getter setters
+	// define getter setters
 	
-	//Define toString
+	// define tostring
 	
-	//Annotate fields
+	// annotate fields
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -37,20 +37,21 @@ public class Course {
 	@Column(name="title")
 	private String title;
 	
-	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,CascadeType.REFRESH} )
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+						 CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="instructor_id")
 	private Instructor instructor;
 	
-	private List<Review> reviews;
-	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="course_id")
-	public List<Review> getReviews() {
-		return reviews;
+	private List<Review> reviews;
+		
+	public Course() {
+		
 	}
 
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
+	public Course(String title) {
+		this.title = title;
 	}
 
 	public int getId() {
@@ -77,26 +78,29 @@ public class Course {
 		this.instructor = instructor;
 	}
 
-	public Course(String title) {
-		this.title = title;
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	// add a convenience method
+	
+	public void addReview(Review theReview) {
+	
+		if (reviews == null) {
+			reviews = new ArrayList<>();
+		}
+		
+		reviews.add(theReview);
 	}
 	
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + "]";
 	}
-
-	public Course() {
-		
-	}
 	
-	//add a convenience method
 	
-	public void addReview(Review theReview) {
-		
-		if(reviews == null) {
-			reviews= new ArrayList<>();
-		}
-		reviews.add(theReview);
-	}
 }

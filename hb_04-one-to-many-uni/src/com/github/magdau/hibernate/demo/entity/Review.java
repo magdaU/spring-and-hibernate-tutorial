@@ -10,24 +10,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name="review")
 public class Review {
+
+	// define fields
 	
-	//Define fields
+	// define constructors
 	
-	//Define constructors
+	// define getter/setters
 	
-	//Define getters/setters
+	// define tostring
 	
-	//Annotate fields
+	// annotate fields
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id; 
+	private int id;
 	
-	@Column (name="comment")
+	@Column(name="comment")
 	private String comment;
 	
-	private Review() {
+	public Review() {
 		
 	}
 
@@ -56,6 +58,6 @@ public class Review {
 		return "Review [id=" + id + ", comment=" + comment + "]";
 	}
 	
-	
-
 }
+
+

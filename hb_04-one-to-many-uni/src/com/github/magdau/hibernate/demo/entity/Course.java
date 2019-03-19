@@ -1,13 +1,18 @@
 package com.github.magdau.hibernate.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,6 +41,18 @@ public class Course {
 	@JoinColumn(name="instructor_id")
 	private Instructor instructor;
 	
+	private List<Review> reviews;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="course_id")
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -64,7 +81,6 @@ public class Course {
 		this.title = title;
 	}
 	
-
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", title=" + title + "]";
@@ -72,5 +88,15 @@ public class Course {
 
 	public Course() {
 		
+	}
+	
+	//add a convenience method
+	
+	public void addReview(Review theReview) {
+		
+		if(reviews == null) {
+			reviews= new ArrayList<>();
+		}
+		reviews.add(theReview);
 	}
 }

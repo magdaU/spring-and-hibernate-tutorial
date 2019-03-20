@@ -12,7 +12,7 @@ import com.github.magdau.hibernate.demo.entity.Review;
 import com.github.magdau.hibernate.demo.entity.Student;
 
 
-public class GetCoursesForMaryDemo {
+public class DeleteMaryStudentDemo {
 
 	public static void main(String[] args) {
 
@@ -35,11 +35,15 @@ public class GetCoursesForMaryDemo {
 			session.beginTransaction();
 				
 			// get the student from database
-			int studentId = 1;
+			int studentId = 4;
 			Student tempStudent = session.get(Student.class, studentId);
 			
 			System.out.println("\nLoaded student: " + tempStudent);
-			System.out.println("Courses: " + tempStudent.getCourses());		
+			System.out.println("Courses: " + tempStudent.getCourses());	
+			
+			//delete student
+			System.out.println("\nDeleting student" + tempStudent);
+			session.delete(tempStudent);
 						
 			// commit transaction
 			session.getTransaction().commit();

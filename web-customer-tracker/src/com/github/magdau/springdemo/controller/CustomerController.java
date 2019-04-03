@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.magdau.springdemo.dao.CustomerDAO;
 import com.github.magdau.springdemo.entity.Customer;
-import com.github.magdau.springdemo.service.CustomerService;
+import  com.github.magdau.springdemo.service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
@@ -38,37 +37,54 @@ public class CustomerController {
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
-		//create model attribute to bind form data
-		Customer theCustomer=new Customer();
-		
+		// create model attribute to bind form data
+		Customer theCustomer = new Customer();
 		
 		theModel.addAttribute("customer", theCustomer);
+		
 		return "customer-form";
 	}
 	
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
 		
-		customerService.saveCustomer(theCustomer);
+		// save the customer using our service
+		customerService.saveCustomer(theCustomer);	
 		
 		return "redirect:/customer/list";
 	}
 	
 	@GetMapping("/showFormForUpdate")
-	public String showFormForUpdate(@RequestParam("customerId") int theId, 
-			Model theModel) {
+	public String showFormForUpdate(@RequestParam("customerId") int theId,
+									Model theModel) {
 		
-		//get the customer from our service
-		Customer theCustomer = customerService.getCustomer(theId);
+		// get the customer from our service
+		Customer theCustomer = customerService.getCustomer(theId);	
 		
-		//set customer as a model attribute to pre-populate the form
+		// set customer as a model attribute to pre-populate the form
 		theModel.addAttribute("customer", theCustomer);
 		
-		//send over to our form
-				
+		// send over to our form		
 		return "customer-form";
 	}
+	
+	@GetMapping("/delete")
+	public String deleteCustomer(@RequestParam("customerId") int theId) {
+		
+		// delete the customer
+		customerService.deleteCustomer(theId);
+		
+		return "redirect:/customer/list";
+	}
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -3,6 +3,7 @@ package com.github.magdau.aopdemo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.github.magdau.aopdemo.dao.AccountDAO;
+import com.github.magdau.aopdemo.dao.MembershipDAO;
 
 public class MainDemoApp {
 
@@ -17,20 +18,18 @@ public class MainDemoApp {
 		
 		// call the business method
 		theAccountDAO.addAccount();
-
-		// do it again!
-		System.out.println("\nlet's call it again!\n");
 		
-		// call the business method again
-		theAccountDAO.addAccount();
+		//get membership bean from spring conatiner
+		MembershipDAO theMemberShipDAO = context.getBean("membershipDAO", MembershipDAO.class);
+		
+		//call the membership business method
+		theMemberShipDAO.addSillyMember();
 				
 		// close the context
 		context.close();
 	}
 
 }
-
-
 
 
 

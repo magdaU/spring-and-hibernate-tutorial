@@ -20,8 +20,13 @@ public class MainDemoApp {
 		Account myAccount = new Account();		
 		theAccountDAO.addAccount(myAccount, true);
 		
+		
 		//get membership bean from spring container
 		MembershipDAO theMemberShipDAO = context.getBean("membershipDAO", MembershipDAO.class);
+		
+		//call the membership business method
+		theMemberShipDAO.addSillyMember();
+		theMemberShipDAO.goToSleep();
 		
 		//call the membership business method
 		theMemberShipDAO.addSillyMember();

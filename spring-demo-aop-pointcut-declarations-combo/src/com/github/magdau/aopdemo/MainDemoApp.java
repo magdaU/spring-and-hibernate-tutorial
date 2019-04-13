@@ -16,29 +16,38 @@ public class MainDemoApp {
 		// get the bean from spring container
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 		
+		// get membership bean from spring container
+		MembershipDAO theMembershipDAO = 
+				context.getBean("membershipDAO", MembershipDAO.class);
+				
 		// call the business method
-		Account myAccount = new Account();		
+		Account myAccount = new Account();
 		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.doWork();
 		
-		//call the accaountdao getter/setter methods
+		// call the accountdao getter/setter methods
 		theAccountDAO.setName("foobar");
 		theAccountDAO.setServiceCode("silver");
+
+		String name = theAccountDAO.getName();
+		String code = theAccountDAO.getServiceCode();
 		
-		String name=theAccountDAO.getName();
-		String code=theAccountDAO.getServiceCode();
+		// call the membership business method
+		theMembershipDAO.addSillyMember();
+		theMembershipDAO.goToSleep();
 		
-		//get membership bean from spring container
-		MembershipDAO theMemberShipDAO = context.getBean("membershipDAO", MembershipDAO.class);
-		
-		//call the membership business method
-		theMemberShipDAO.addSillyMember();
-		theMemberShipDAO.goToSleep();
-		
-		//call the membership business method
-		theMemberShipDAO.addSillyMember();
-				
 		// close the context
 		context.close();
 	}
 
 }
+
+
+
+
+
+
+
+
+
+

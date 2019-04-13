@@ -12,7 +12,7 @@ public class MyDemoLoggingAspect {
 	
 	// let's start with an @Before advice
 
-	@Before("execution(* add*(com.github.magdau.aopdemo.Account, ..))")  // .. match any number of arguments
+	@Before("execution(* add*(..))") // matches for any parametres
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("\n=====>>> Executing @Before advice on method");

@@ -18,7 +18,7 @@ public class AfterReturningDemoApp {
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 		
 		//call the method to find the accounts
-		List<Account>theAccounts= theAccountDAO.findAccounts();
+		List<Account>theAccounts= theAccountDAO.findAccounts(false);
 		
 		//display the accounts
 		System.out.println("\n\n Main Program : AfterReturningDemoApp");
@@ -28,7 +28,6 @@ public class AfterReturningDemoApp {
 		
 		System.out.println("\n");
 	
-		// close the context
 		context.close();
 	}
 

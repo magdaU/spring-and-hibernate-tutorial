@@ -10,6 +10,16 @@ public class Address {
 	
 	private Address adress;
 	
+	private String [] languages;
+	
+	public String[] getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String[] languages) {
+		this.languages = languages;
+	}
+
 	public Address getAdress() {
 		return adress;
 	}

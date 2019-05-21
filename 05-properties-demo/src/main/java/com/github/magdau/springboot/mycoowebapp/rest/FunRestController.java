@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FunRestController {
 	
-	//inject properties for: cochac.name and team.name
+	//inject properties for: coach.name and team.name
 	@Value("${coach.name}")
 	private String coachName;
 	

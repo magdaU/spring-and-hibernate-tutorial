@@ -11,14 +11,14 @@ import com.luv2code.springboot.cruddemo.entity.Employee;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-	
+
 	private EmployeeDAO employeeDAO;
 	
-	@Autowired  // constructor injection
+	@Autowired
 	public EmployeeServiceImpl(EmployeeDAO theEmployeeDAO) {
-		employeeDAO=theEmployeeDAO;
+		employeeDAO = theEmployeeDAO;
 	}
-
+	
 	@Override
 	@Transactional
 	public List<Employee> findAll() {
@@ -44,3 +44,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 }
+
+
+

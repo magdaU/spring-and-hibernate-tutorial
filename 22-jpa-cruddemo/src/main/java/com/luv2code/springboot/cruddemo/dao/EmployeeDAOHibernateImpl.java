@@ -2,7 +2,7 @@ package com.luv2code.springboot.cruddemo.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -64,7 +64,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 		Session currentSession = entityManager.unwrap(Session.class);
 		
 		// save employee
-		currentSession.saveOrUpdate(theEmployee);
+		currentSession.merge(theEmployee);
 	}
 
 

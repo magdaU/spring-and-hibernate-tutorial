@@ -48,7 +48,7 @@ public class EmployeeController {
 
 	}
 
-	@GetMapping("showFormForUpdate")
+	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId, Model theModel) {
 
 		// get the employee from the service
@@ -71,7 +71,7 @@ public class EmployeeController {
 		return "redirect:/employees/list";
 	}
 	
-	@GetMapping("delete")
+	@GetMapping("/delete")
 	public String delete(@RequestParam("employeeId") int theId) {
 		
 		//delete the employee

@@ -14,7 +14,7 @@ and Thymeleaf-based web UIs. There is no shared parent POM — each module is bu
 
 | Technology | Version | Notes |
 |---|---|---|
-| Java | 17 | LTS release; minimum required by Spring 6.x |
+| Java | 21 | LTS release; officially supported by Spring 6.x |
 | Spring Framework | 6.1.x | Latest 6.x line; requires Jakarta EE 9+ |
 | Spring Boot | 3.x | Used in Spring Boot modules |
 | Spring Security | 6.x | Jakarta EE namespace |
@@ -31,7 +31,7 @@ and Thymeleaf-based web UIs. There is no shared parent POM — each module is bu
 The original course code was written for Java 8, Spring 5.x, and the legacy `javax.*` servlet namespace (Java EE).
 These versions are end-of-life or approaching it. The upgrade goals are:
 
-- **Java 17** — LTS release with long-term vendor support; required by Spring 6.x
+- **Java 21** — LTS release with long-term vendor support; officially supported by Spring 6.x; all modules aligned to Java 21
 - **Spring 6.x / Spring Boot 3.x** — active maintenance branch with security patches and new features
 - **Jakarta EE 9+ (`jakarta.*` namespace)** — Spring 6.x dropped support for the legacy `javax.*` namespace; all servlet, JSP and JSTL dependencies must use `jakarta.*` coordinates
 - **Tomcat 10.x** — first Tomcat release supporting Jakarta EE 9+; Tomcat 9.x only supports the legacy `javax.*` namespace
@@ -95,7 +95,7 @@ These versions are end-of-life or approaching it. The upgrade goals are:
 
 ## Requirements
 
-- JDK 17+
+- JDK 21+
 - Maven 3.6+
 - MySQL 8.x
 - Tomcat 10.x (for non-Boot WAR modules)

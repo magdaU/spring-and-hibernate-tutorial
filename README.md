@@ -49,12 +49,20 @@ Projects from the Udemy course **"Spring & Hibernate for Beginners"**.
 | `36-thymeleafdemo-employees-update` | Thymeleaf — update employee |
 | `37-thymeleafdemo-employees-delete` | Thymeleaf — delete employee (full CRUD) |
 
+## Changelog
+
+### 2026-06-05 — `spring-security-demo-01-base-app`
+- Upgraded Spring Framework from 5.3.39 to **6.1.14**
+- Changed Java compiler target from 21 to **17**
+- Replaced `javax.servlet` dependencies with `jakarta.servlet` equivalents (Spring 6.x requires Jakarta EE 9+)
+- Added `<failOnMissingWebXml>false</failOnMissingWebXml>` to maven-war-plugin (annotation-based config, no `web.xml`)
+
 ## Requirements
 
-- JDK 8+
+- JDK 17+
 - Maven 3.6+
 - MySQL 8.x
-- Tomcat 9.x (for non-Boot WAR modules)
+- Tomcat 10.x (for non-Boot WAR modules using Jakarta EE 9+)
 
 ## Database Setup
 

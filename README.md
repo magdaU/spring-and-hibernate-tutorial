@@ -137,7 +137,8 @@ mvn clean package
 
 **`spring-security-demo-01-base-app`**
 - Upgraded Spring Framework: `5.3.39` → `6.1.14`
-- Changed Java compiler target: `21` → `17`
+- Changed Java compiler target: `17` → `21` (aligned with all other modules in the repository)
+- Previously temporarily set to `17`; upgraded to `21` as Spring 6.1.x officially supports Java 21 (LTS)
 - Replaced legacy `javax.servlet` dependencies with Jakarta EE 9+ equivalents:
   - `javax.servlet:javax.servlet-api:3.1.0` → `jakarta.servlet:jakarta.servlet-api:6.0.0`
   - `javax.servlet.jsp:javax.servlet.jsp-api:2.3.1` → `jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0`

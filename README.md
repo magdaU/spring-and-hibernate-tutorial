@@ -85,14 +85,6 @@ These versions are end-of-life or approaching it. The upgrade goals are:
 | `36-thymeleafdemo-employees-update` | Thymeleaf — update employee |
 | `37-thymeleafdemo-employees-delete` | Thymeleaf — delete employee (full CRUD) |
 
-## Changelog
-
-### 2026-06-05 — `spring-security-demo-01-base-app`
-- Upgraded Spring Framework from 5.3.39 to **6.1.14**
-- Changed Java compiler target from 21 to **17**
-- Replaced `javax.servlet` dependencies with `jakarta.servlet` equivalents (Spring 6.x requires Jakarta EE 9+)
-- Added `<failOnMissingWebXml>false</failOnMissingWebXml>` to maven-war-plugin (annotation-based config, no `web.xml`)
-
 ## Requirements
 
 - JDK 21+
@@ -137,31 +129,31 @@ mvn clean package
 
 #### `spring-security-demo-01-base-app`
 
-| What | Old version | New version | Notes |
-|---|---|---|---|
-| Spring Framework | `5.3.39` | `6.1.14` | Active maintenance branch with security patches |
-| Java compiler target | `17` | `21` | LTS; aligned with all other modules; supported by Spring 6.1.x |
-| `javax.servlet:javax.servlet-api` | `3.1.0` | `jakarta.servlet:jakarta.servlet-api:6.0.0` | Spring 6.x requires Jakarta EE 9+ (`jakarta.*` namespace) |
-| `javax.servlet.jsp:javax.servlet.jsp-api` | `2.3.1` | `jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0` | Jakarta EE 9+ namespace |
-| `javax.servlet:jstl` | `1.2` | `jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0` | Jakarta EE 9+ namespace |
-| `maven-war-plugin` config | — | `failOnMissingWebXml=false` | Project uses annotation-based config; no `web.xml` present |
+| What | Old | New |
+|---|---|---|
+| Spring Framework | 5.3.39 | 6.1.14 |
+| Java target | 17 | 21 |
+| `javax.servlet-api` | 3.1.0 | `jakarta.servlet-api` 6.0.0 |
+| `javax.servlet.jsp-api` | 2.3.1 | `jakarta.servlet.jsp-api` 3.1.0 |
+| `jstl` | 1.2 | `jakarta.servlet.jsp.jstl-api` 3.0.0 |
+| `maven-war-plugin` | — | `failOnMissingWebXml=false` |
 
 #### All legacy Spring MVC modules
 
-| What | Old version | New version |
+| What | Old | New |
 |---|---|---|
-| JUnit | `3.8.1` | `4.13.2` |
+| JUnit | 3.8.1 | 4.13.2 |
 
 #### `spring-rest-demo`, `spring-crm-rest-demo`
 
-| What | Old version | New version |
+| What | Old | New |
 |---|---|---|
-| Java compiler target | `8` | `21` |
+| Java target | 8 | 21 |
 
-#### `cruddemo`, `mycoolwebapp`, `mycoowebapp`, security demo copies
+#### `cruddemo`, `mycoolwebapp`, `mycoowebapp`, security demos
 
-| What | Old version | New version |
+| What | Old | New |
 |---|---|---|
-| Spring Framework | `5.x` | `6.x` |
-| Spring Security | `5.x` | `6.x` |
-| Java compiler target | `8` / `11` | `21` |
+| Spring Framework | 5.x | 6.x |
+| Spring Security | 5.x | 6.x |
+| Java target | 8 / 11 | 21 |

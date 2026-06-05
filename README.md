@@ -1,5 +1,8 @@
 # Spring & Hibernate Tutorial
 
+![Java](https://img.shields.io/badge/Java-21-blue?logo=openjdk)
+![Spring Framework](https://img.shields.io/badge/Spring%20Framework-6.2.18-brightgreen?logo=spring)
+
 Repository contains hands-on projects from the Udemy course **"Spring & Hibernate for Beginners"** by Chad Darby.
 The original course material targeted Java 8 and older Spring versions. This repository has been progressively upgraded
 to modern Java and Spring ecosystem versions to keep the code relevant and buildable on current tooling.

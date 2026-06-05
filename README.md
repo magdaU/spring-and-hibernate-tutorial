@@ -85,6 +85,14 @@ These versions are end-of-life or approaching it. The upgrade goals are:
 | `36-thymeleafdemo-employees-update` | Thymeleaf — update employee |
 | `37-thymeleafdemo-employees-delete` | Thymeleaf — delete employee (full CRUD) |
 
+## Changelog
+
+### 2026-06-05 — `spring-security-demo-01-base-app`
+- Upgraded Spring Framework from 5.3.39 to **6.1.14**
+- Changed Java compiler target from 21 to **17**
+- Replaced `javax.servlet` dependencies with `jakarta.servlet` equivalents (Spring 6.x requires Jakarta EE 9+)
+- Added `<failOnMissingWebXml>false</failOnMissingWebXml>` to maven-war-plugin (annotation-based config, no `web.xml`)
+
 ## Requirements
 
 - JDK 17+

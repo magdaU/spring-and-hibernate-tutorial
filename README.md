@@ -133,23 +133,35 @@ mvn clean package
 
 ## Changelog
 
-### 2026-06-05
+### 05.06.2026
 
-**`spring-security-demo-01-base-app`**
-- Upgraded Spring Framework: `5.3.39` → `6.1.14`
-- Changed Java compiler target: `17` → `21` (aligned with all other modules in the repository)
-- Previously temporarily set to `17`; upgraded to `21` as Spring 6.1.x officially supports Java 21 (LTS)
-- Replaced legacy `javax.servlet` dependencies with Jakarta EE 9+ equivalents:
-  - `javax.servlet:javax.servlet-api:3.1.0` → `jakarta.servlet:jakarta.servlet-api:6.0.0`
-  - `javax.servlet.jsp:javax.servlet.jsp-api:2.3.1` → `jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0`
-  - `javax.servlet:jstl:1.2` → `jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0`
-- Added `<failOnMissingWebXml>false</failOnMissingWebXml>` to `maven-war-plugin` (annotation-based config, no `web.xml`)
+#### `spring-security-demo-01-base-app`
 
-**All legacy Spring MVC modules**
-- Bumped JUnit: `3.8.1` → `4.13.2`
+| What | Old version | New version | Notes |
+|---|---|---|---|
+| Spring Framework | `5.3.39` | `6.1.14` | Active maintenance branch with security patches |
+| Java compiler target | `17` | `21` | LTS; aligned with all other modules; supported by Spring 6.1.x |
+| `javax.servlet:javax.servlet-api` | `3.1.0` | `jakarta.servlet:jakarta.servlet-api:6.0.0` | Spring 6.x requires Jakarta EE 9+ (`jakarta.*` namespace) |
+| `javax.servlet.jsp:javax.servlet.jsp-api` | `2.3.1` | `jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0` | Jakarta EE 9+ namespace |
+| `javax.servlet:jstl` | `1.2` | `jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0` | Jakarta EE 9+ namespace |
+| `maven-war-plugin` config | — | `failOnMissingWebXml=false` | Project uses annotation-based config; no `web.xml` present |
 
-**Spring REST modules (`spring-rest-demo`, `spring-crm-rest-demo`)**
-- Upgraded to Java 21 compiler target
+#### All legacy Spring MVC modules
 
-**Multiple modules** (`cruddemo`, `mycoolwebapp`, `mycoowebapp`, security copies)
-- Upgraded Spring Framework, Spring Security, and Java compiler settings
+| What | Old version | New version |
+|---|---|---|
+| JUnit | `3.8.1` | `4.13.2` |
+
+#### `spring-rest-demo`, `spring-crm-rest-demo`
+
+| What | Old version | New version |
+|---|---|---|
+| Java compiler target | `8` | `21` |
+
+#### `cruddemo`, `mycoolwebapp`, `mycoowebapp`, security demo copies
+
+| What | Old version | New version |
+|---|---|---|
+| Spring Framework | `5.x` | `6.x` |
+| Spring Security | `5.x` | `6.x` |
+| Java compiler target | `8` / `11` | `21` |

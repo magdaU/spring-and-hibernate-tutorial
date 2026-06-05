@@ -11,7 +11,7 @@
 	<name>spring-security-demo</name>
 
 	<properties>
-		<springframework.version>6.1.14</springframework.version>
+		<springframework.version>6.2.18</springframework.version>
 
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
@@ -67,7 +67,7 @@
 					<!-- Add Maven coordinates GAV for : maven-war-project -->
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.4.0</version>
 					<configuration>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>

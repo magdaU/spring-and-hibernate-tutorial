@@ -14,7 +14,7 @@ and Thymeleaf-based web UIs. There is no shared parent POM — each module is bu
 
 | Technology | Version | Notes |
 |---|---|---|
-| Java | 17 | LTS release; minimum required by Spring 6.x |
+| Java | 21 | LTS release; officially supported by Spring 6.x |
 | Spring Framework | 6.1.x | Latest 6.x line; requires Jakarta EE 9+ |
 | Spring Boot | 3.x | Used in Spring Boot modules |
 | Spring Security | 6.x | Jakarta EE namespace |
@@ -31,7 +31,7 @@ and Thymeleaf-based web UIs. There is no shared parent POM — each module is bu
 The original course code was written for Java 8, Spring 5.x, and the legacy `javax.*` servlet namespace (Java EE).
 These versions are end-of-life or approaching it. The upgrade goals are:
 
-- **Java 17** — LTS release with long-term vendor support; required by Spring 6.x
+- **Java 21** — LTS release with long-term vendor support; officially supported by Spring 6.x; all modules aligned to Java 21
 - **Spring 6.x / Spring Boot 3.x** — active maintenance branch with security patches and new features
 - **Jakarta EE 9+ (`jakarta.*` namespace)** — Spring 6.x dropped support for the legacy `javax.*` namespace; all servlet, JSP and JSTL dependencies must use `jakarta.*` coordinates
 - **Tomcat 10.x** — first Tomcat release supporting Jakarta EE 9+; Tomcat 9.x only supports the legacy `javax.*` namespace
@@ -95,7 +95,7 @@ These versions are end-of-life or approaching it. The upgrade goals are:
 
 ## Requirements
 
-- JDK 17+
+- JDK 21+
 - Maven 3.6+
 - MySQL 8.x
 - Tomcat 10.x (for non-Boot WAR modules)
@@ -133,22 +133,35 @@ mvn clean package
 
 ## Changelog
 
-### 2026-06-05
+### 05.06.2026
 
-**`spring-security-demo-01-base-app`**
-- Upgraded Spring Framework: `5.3.39` → `6.1.14`
-- Changed Java compiler target: `21` → `17`
-- Replaced legacy `javax.servlet` dependencies with Jakarta EE 9+ equivalents:
-  - `javax.servlet:javax.servlet-api:3.1.0` → `jakarta.servlet:jakarta.servlet-api:6.0.0`
-  - `javax.servlet.jsp:javax.servlet.jsp-api:2.3.1` → `jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0`
-  - `javax.servlet:jstl:1.2` → `jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0`
-- Added `<failOnMissingWebXml>false</failOnMissingWebXml>` to `maven-war-plugin` (annotation-based config, no `web.xml`)
+#### `spring-security-demo-01-base-app`
 
-**All legacy Spring MVC modules**
-- Bumped JUnit: `3.8.1` → `4.13.2`
+| What | Old version | New version | Notes |
+|---|---|---|---|
+| Spring Framework | `5.3.39` | `6.1.14` | Active maintenance branch with security patches |
+| Java compiler target | `17` | `21` | LTS; aligned with all other modules; supported by Spring 6.1.x |
+| `javax.servlet:javax.servlet-api` | `3.1.0` | `jakarta.servlet:jakarta.servlet-api:6.0.0` | Spring 6.x requires Jakarta EE 9+ (`jakarta.*` namespace) |
+| `javax.servlet.jsp:javax.servlet.jsp-api` | `2.3.1` | `jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.0` | Jakarta EE 9+ namespace |
+| `javax.servlet:jstl` | `1.2` | `jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0` | Jakarta EE 9+ namespace |
+| `maven-war-plugin` config | — | `failOnMissingWebXml=false` | Project uses annotation-based config; no `web.xml` present |
 
-**Spring REST modules (`spring-rest-demo`, `spring-crm-rest-demo`)**
-- Upgraded to Java 21 compiler target
+#### All legacy Spring MVC modules
 
-**Multiple modules** (`cruddemo`, `mycoolwebapp`, `mycoowebapp`, security copies)
-- Upgraded Spring Framework, Spring Security, and Java compiler settings
+| What | Old version | New version |
+|---|---|---|
+| JUnit | `3.8.1` | `4.13.2` |
+
+#### `spring-rest-demo`, `spring-crm-rest-demo`
+
+| What | Old version | New version |
+|---|---|---|
+| Java compiler target | `8` | `21` |
+
+#### `cruddemo`, `mycoolwebapp`, `mycoowebapp`, security demo copies
+
+| What | Old version | New version |
+|---|---|---|
+| Spring Framework | `5.x` | `6.x` |
+| Spring Security | `5.x` | `6.x` |
+| Java compiler target | `8` / `11` | `21` |

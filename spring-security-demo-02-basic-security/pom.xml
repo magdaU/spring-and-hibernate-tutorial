@@ -12,7 +12,7 @@
 
 	<properties>
 		<springframework.version>5.3.39</springframework.version>
-		<springsecurity.version>5.8.14</springsecurity.version>
+		<springsecurity.version>6.5.11</springsecurity.version>
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
